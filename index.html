@@ -1,37 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>AAR DEMO | AWS CLOUD DEPLOYMENT</title>
-  <style>
-    body {
-      color: #000080;
-      background-color: #FFFFFF;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-    }
-    
-    h1 {
-      font-size: 500%;
-      font-weight: normal;
-      margin-bottom: 0;
-    }
-    
-    h2 {
-      font-size: 200%;
-      font-weight: normal;
-      margin-bottom: 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Anand</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #FFDDC1, #FFABAB, #FFC3A0);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 50px 20px;
+        }
+
+        h1 {
+            color: #FF6F61;
+            font-size: 3em;
+        }
+
+        .clouds {
+            background: url('https://i.imgur.com/XOQwwYB.png') repeat-x;
+            height: 150px;
+            width: 100%;
+            position: relative;
+            animation: moveClouds 60s linear infinite;
+        }
+
+        @keyframes moveClouds {
+            from { background-position: 0; }
+            to { background-position: 1000px; }
+        }
+
+        #anand-fact {
+            font-size: 1.5em;
+            color: #ff7675;
+            background-color: white;
+            border-radius: 15px;
+            padding: 15px;
+            display: inline-block;
+            cursor: pointer;
+            box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        #anand-fact:hover {
+            transform: scale(1.1);
+        }
+
+        .experience {
+            font-size: 1.8em;
+            color: #2d3436;
+            margin: 30px 0;
+        }
+
+        .balloons {
+            position: absolute;
+            bottom: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        #toggleBalloon {
+            background-color: #fdcb6e;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        #toggleBalloon:hover {
+            background-color: #e17055;
+        }
+    </style>
 </head>
 <body>
-  <div align="center">
-    <img src="https://s3.ap-south-1.amazonaws.com/www.basava.com/aar_logo_final.png" style="max-width: 20%;">
-    <h1>Congratulations!!! </h1>
-      <h2>Welcome to AAR SOURCE| Ram Hemareddy</h2>
-    <h3>This application was deployed using AWS CodeDeploy.</h3>
-    <p>For next steps, read the <a href="http://aws.amazon.com/documentation/codedeploy">AWS CodeDeploy Documentation</a>.</p>
-  </div>
+    <div class="container">
+        <h1>Meet Anand!</h1>
+        <div class="clouds"></div>
+        <p id="anand-fact">Click to Learn About Anand's Experience</p>
+        <p class="experience" id="experience-text" style="display:none;">Anand has over <strong>2 years of experience</strong> in various technologies and is passionate about learning and sharing knowledge!</p>
+        <img id="balloon1" class="balloons" src="https://i.imgur.com/5bPavjt.png" alt="Balloon" style="left: 10%;">
+        <img id="balloon2" class="balloons" src="https://i.imgur.com/5bPavjt.png" alt="Balloon" style="right: 10%;">
+        <br>
+        <button id="toggleBalloon">Toggle Balloons!</button>
+    </div>
+
+    <script>
+        // Handle clicking on the fact to reveal Anand's experience
+        const anandFact = document.getElementById('anand-fact');
+        const experienceText = document.getElementById('experience-text');
+        anandFact.addEventListener('click', function() {
+            experienceText.style.display = experienceText.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Handle the toggling of balloon visibility
+        const balloon1 = document.getElementById('balloon1');
+        const balloon2 = document.getElementById('balloon2');
+        const toggleBalloonButton = document.getElementById('toggleBalloon');
+
+        toggleBalloonButton.addEventListener('click', function() {
+            if (balloon1.style.display === 'none') {
+                balloon1.style.display = 'block';
+                balloon2.style.display = 'block';
+            } else {
+                balloon1.style.display = 'none';
+                balloon2.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
-
